@@ -17,6 +17,10 @@ var peer = new Peer(undefined, {
     path: "/peerjs",
     host: "/",
     port: "",
+    secure: true, // Replace with true if using HTTPS
+    config: {
+    iceServers: process.env.ICESERVER
+  }
 });
 
 let myVideoStream;
