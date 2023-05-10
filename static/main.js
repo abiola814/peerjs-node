@@ -16,8 +16,8 @@ window.onload = () => {
 var peer = new Peer(undefined, {
     path: "/peerjs",
     host: "/",
-    port: "",
-    secure: true, // Replace with true if using HTTPS
+    port: "3030",
+    //secure: true, // Replace with true if using HTTPS
     config: {
     iceServers: process.env.ICESERVER
   }

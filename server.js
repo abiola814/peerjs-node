@@ -3,12 +3,14 @@ const app = express();
 const server = require("http").Server(app);
 const { v4: uuidv4 } = require("uuid");
 const io = require("socket.io")(server);
+require('dotenv').config()
 const { ExpressPeerServer } = require("peer");
 const url = require("url");
 const peerServer = ExpressPeerServer(server, {
     debug: true,
 });
 const path = require("path");
+const envs = process.env.ICESERVER
 
 app.set("view engine", "ejs");
 app.use("/public", express.static(path.join(__dirname, "static")));
@@ -16,6 +18,7 @@ app.use("/peerjs", peerServer);
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "static", "index.html"));
+    // res.render("room",{envs})
 });
 
 app.get("/join", (req, res) => {
@@ -37,7 +40,7 @@ app.get("/joinold", (req, res) => {
 });
 
 app.get("/join/:rooms", (req, res) => {
-    res.render("room", { roomid: req.params.rooms, Myname: req.query.name });
+    res.render("room", { roomid: req.params.rooms, Myname: req.query.name,envs:envs });
 });
 
 io.on("connection", (socket) => {
