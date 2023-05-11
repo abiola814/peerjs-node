@@ -40,7 +40,7 @@ app.get("/joinold", (req, res) => {
 });
 
 app.get("/join/:rooms", (req, res) => {
-    res.render("room", { roomid: req.params.rooms, Myname: req.query.name,envs:envs });
+    res.render("room", { roomid: req.params.rooms, Myname: req.query.name });
 });
 
 io.on("connection", (socket) => {

@@ -15,7 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io@4.6.1/client-dist/socket.io.min.js" integrity="sha256-2JsFSuJ9CqT/k6E2V6h96VGPIcYV13GReqK0lDieH1g=" crossorigin="anonymous"></script>
 
     <script>
         const myname = "<%= Myname %>"
@@ -74,7 +74,7 @@
                 </div>
                 <div class="main_controls_block">
                     <div class="main_controls_button leave_red">
-                        <span class="leave_meeting"><a href="/">Leave Meeting</a></span>
+                        <span class="leave_meeting"><a href="/">Leave event</a></span>
                     </div>
                 </div>
             </div>
@@ -119,18 +119,10 @@ var peer = new Peer(undefined, {
     host: "/",
     port: "",
     config: {
-    iceServers: [
-        {'url': 'stun:global.stun.twilio.com:3478', 
-        'urls': 'stun:global.stun.twilio.com:3478'
-        }, 
-        {'url': 'turn:global.turn.twilio.com:3478?transport=udp', 'username': '9d9198a210437f6a8c7808cad29503d7223ddff5ad72dcaa8cf711cb6ffe805a',
-         'urls': 'turn:global.turn.twilio.com:3478?transport=udp', 'credential': 'tPEOrbSCpHhi+oF4VZdi6owvF/7OrgoSG448wNtaBmA='
-        },
-         {'url': 'turn:global.turn.twilio.com:3478?transport=tcp', 'username': '9d9198a210437f6a8c7808cad29503d7223ddff5ad72dcaa8cf711cb6ffe805a', 
-         'urls': 'turn:global.turn.twilio.com:3478?transport=tcp', 'credential': 'tPEOrbSCpHhi+oF4VZdi6owvF/7OrgoSG448wNtaBmA='}, {'url': 'turn:global.turn.twilio.com:443?transport=tcp', 'username': '9d9198a210437f6a8c7808cad29503d7223ddff5ad72dcaa8cf711cb6ffe805a',
-          'urls': 'turn:global.turn.twilio.com:443?transport=tcp', 'credential': 'tPEOrbSCpHhi+oF4VZdi6owvF/7OrgoSG448wNtaBmA='
-        }
-    ]
+    iceServers: [{'url': 'stun:global.stun.twilio.com:3478', 'urls': 'stun:global.stun.twilio.com:3478'},
+     {'url': 'turn:global.turn.twilio.com:3478?transport=udp', 'username': '91757ea8f6d8501acb93c66574a54d7c64c5d7989ad5a8fac17ae413061f84f7', 'urls': 'turn:global.turn.twilio.com:3478?transport=udp', 'credential': '5P3X9Kknwqtgoe8rSteqzOkBQpMlnwOjRW1gXF+7QXc='},
+      {'url': 'turn:global.turn.twilio.com:3478?transport=tcp', 'username': '91757ea8f6d8501acb93c66574a54d7c64c5d7989ad5a8fac17ae413061f84f7', 'urls': 'turn:global.turn.twilio.com:3478?transport=tcp', 'credential': '5P3X9Kknwqtgoe8rSteqzOkBQpMlnwOjRW1gXF+7QXc='},
+      {'url': 'turn:global.turn.twilio.com:443?transport=tcp', 'username': '91757ea8f6d8501acb93c66574a54d7c64c5d7989ad5a8fac17ae413061f84f7', 'urls': 'turn:global.turn.twilio.com:443?transport=tcp', 'credential': '5P3X9Kknwqtgoe8rSteqzOkBQpMlnwOjRW1gXF+7QXc='}]
   }
 });
 
